@@ -12,7 +12,7 @@ class SinglyLinkedListTest {
     void givenASinglyLinkedList_whenInsertingOnlyOneElement_thenSizeIsOne() {
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
-        assertEquals(list.getSize(), 1);
+        assertEquals(1, list.getSize());
     }
 
     @Test
@@ -20,7 +20,7 @@ class SinglyLinkedListTest {
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
-        assertEquals(list.getSize(), 2);
+        assertEquals(2, list.getSize());
     }
 
     @Test
@@ -35,7 +35,7 @@ class SinglyLinkedListTest {
         list.add(1);
         list.add(2);
         list.removeFirst();
-        assertEquals(list.getSize(), 1);
+        assertEquals(1, list.getSize());
     }
 
     @Test
@@ -43,7 +43,7 @@ class SinglyLinkedListTest {
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
-        assertEquals(list.get(0), 1);
+        assertEquals(1, list.get(0));
     }
 
     @Test
@@ -84,7 +84,7 @@ class SinglyLinkedListTest {
         list.add(1);
         list.add(2);
         list.add(3, 1);
-        assertEquals(list.getSize(), 3);
+        assertEquals(3, list.getSize());
     }
 
     @Test
