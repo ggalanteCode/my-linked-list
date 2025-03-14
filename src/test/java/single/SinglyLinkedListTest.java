@@ -124,4 +124,22 @@ class SinglyLinkedListTest {
         assertEquals(1, list.getSize());
     }
 
+    @Test
+    void givenASinglyLinkedList_whenValues1And2And3AreInsertedAndTheFirstRemoved_thenTraverseIs23() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.removeFirst();
+        assertEquals("2 -> 3", list.traverse());
+    }
+
+    @Test
+    void givenASinglyLinkedList_whenValue1IsInsertedAndTheFirstRemoved_thenTraverseIsEmptyString() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.removeFirst();
+        assertEquals("", list.traverse());
+    }
+
 }
