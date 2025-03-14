@@ -62,4 +62,20 @@ class SinglyLinkedListTest {
         assertThrows(IndexOutOfBoundsException.class, () -> list.get(2));
     }
 
+    @Test
+    void givenASinglyLinkedList_whenValues1And2AreInsertedAndSearchForValue2_thenTheSpecifiedValueIsFound() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        assertTrue(list.search(2));
+    }
+
+    @Test
+    void givenASinglyLinkedList_whenValues1And2AreInsertedAndSearchForValue3_thenTheSpecifiedValueIsNotFound() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        assertFalse(list.search(3));
+    }
+
 }

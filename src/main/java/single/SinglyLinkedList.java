@@ -70,6 +70,22 @@ public class SinglyLinkedList<T> {
     }
 
     /**
+     * searches the specified element in this list
+     * @param searchedData
+     * @return true if the list contains the specified element, false otherwise.
+     */
+    public boolean search(T searchedData) {
+        Node<T> current = head;
+        while (current != null) {
+            if (current.data.equals(searchedData)) {
+                return true;    //the element is found
+            }
+            current = current.next;
+        }
+        return false;   //the element is not found
+    }
+
+    /**
      * traverse the entire list, node by node.
      */
     public void traverse() {
