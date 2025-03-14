@@ -1,5 +1,6 @@
 package single;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
@@ -8,16 +9,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SinglyLinkedListTest {
 
+    SinglyLinkedList<Integer> list;
+
+    @BeforeEach
+    void init() {
+
+        list = new SinglyLinkedList<>();
+
+    }
+
     @Test
     void givenASinglyLinkedList_whenInsertingOnlyOneElement_thenSizeIsOne() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         assertEquals(1, list.getSize());
     }
 
     @Test
     void givenASinglyLinkedList_whenInsertingTwoElements_thenSizeIsTwo() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         assertEquals(2, list.getSize());
@@ -25,7 +33,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenTwoElementsAreInsertedAndGetAtIndexZero_thenTheFirstElementIsReturned() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         assertEquals(1, list.get(0));
@@ -33,7 +40,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenTwoElementsAreInsertedAndGetAtIndexMinusOne_thenIndexOutOfBoundsExceptionIsThrown() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         assertThrows(IndexOutOfBoundsException.class, () -> list.get(-1));
@@ -41,7 +47,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenTwoElementsAreInsertedAndGetAtIndexTwo_thenIndexOutOfBoundsExceptionIsThrown() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         assertThrows(IndexOutOfBoundsException.class, () -> list.get(2));
@@ -49,7 +54,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValues1And2AreInsertedAndSearchForValue2_thenTheSpecifiedValueIsFound() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         assertTrue(list.search(2));
@@ -57,7 +61,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValues1And2AreInsertedAndSearchForValue3_thenTheSpecifiedValueIsNotFound() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         assertFalse(list.search(3));
@@ -65,7 +68,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenTwoElementsAreInsertedAndInsertAtPositionOne_thenSizeIsThree() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3, 1);
@@ -74,7 +76,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValues1And2AreInsertedAndInsertAtPositionOne_thenTraverseIs132() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3, 1);
@@ -83,7 +84,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValues1And2AreInsertedAndInsertAtPositionTwo_thenTraverseIs123() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3, 2);
@@ -92,7 +92,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValues1And2AreInsertedAndInsertAtPositionThree_thenTraverseIs123() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3, 3);
@@ -101,7 +100,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValues1And2And3AreInsertedAndInsert4AtPositionTen_thenTraverseIs1234() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -111,13 +109,11 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenListIsEmpty_thenNoSuchElementExceptionIsThrown() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         assertThrows(NoSuchElementException.class, () -> list.removeFirst());
     }
 
     @Test
     void givenASinglyLinkedList_whenTwoElementsAreInsertedAndTheFirstRemoved_thenSizeIsOne() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         list.removeFirst();
@@ -126,7 +122,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValues1And2And3AreInsertedAndTheFirstRemoved_thenTraverseIs23() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -136,7 +131,6 @@ class SinglyLinkedListTest {
 
     @Test
     void givenASinglyLinkedList_whenValue1IsInsertedAndTheFirstRemoved_thenTraverseIsEmptyString() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
         list.removeFirst();
         assertEquals("", list.traverse());
