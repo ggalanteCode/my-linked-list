@@ -26,6 +26,23 @@ public class SinglyLinkedList<T> {
         size++;
     }
 
+    public void add(T data, int position) {
+        if (position <= 0) {
+            addFirst(data);
+        } else if (position >= size) {
+            add(data);
+        } else {
+            Node<T> newNode = new Node<>(data);
+            Node<T> current = head;
+            for (int i = 1; i < position; i++) {
+                current = current.next;
+            }
+            newNode.next = current.next;
+            current.next = newNode;
+            size++;
+        }
+    }
+
     /**
      * add an element at the beginning of the list.
      * @param data
@@ -88,16 +105,17 @@ public class SinglyLinkedList<T> {
     /**
      * traverse the entire list, node by node.
      */
-    public void traverse() {
+    public String traverse() {
         Node<T> current = head;
+        StringBuilder listNodes = new StringBuilder();
         while (current != null) {
-            System.out.print(current.data);
+            listNodes.append(current.data);
             if (current.next != null) {
-                System.out.print(" -> ");
+                listNodes.append(" -> ");
             }
             current = current.next;
         }
-        System.out.println();
+        return listNodes.toString();
     }
 
     private void checkBounds(int index) {
