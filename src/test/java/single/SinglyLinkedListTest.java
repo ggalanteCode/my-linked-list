@@ -2,6 +2,8 @@ package single;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SinglyLinkedListTest {
@@ -19,6 +21,12 @@ class SinglyLinkedListTest {
         list.add(1);
         list.add(2);
         assertEquals(list.getSize(), 2);
+    }
+
+    @Test
+    void givenASinglyLinkedList_whenListIsEmpty_thenNoSuchElementExceptionIsThrown() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        assertThrows(NoSuchElementException.class, () -> list.removeFirst());
     }
 
 }

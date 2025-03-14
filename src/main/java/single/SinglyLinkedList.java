@@ -1,5 +1,7 @@
 package single;
 
+import java.util.NoSuchElementException;
+
 public class SinglyLinkedList<T> {
 
     private Node<T> head;
@@ -36,7 +38,13 @@ public class SinglyLinkedList<T> {
     }
 
     public T removeFirst() {
-        return null;
+        if (head == null) {
+            throw new NoSuchElementException("You can't remove anything because the list is empty.");
+        }
+        T removedData = head.data;
+        head = head.next;
+        size--;
+        return removedData;
     }
 
     public T get(int index) {
