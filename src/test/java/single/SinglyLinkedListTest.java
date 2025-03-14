@@ -29,4 +29,13 @@ class SinglyLinkedListTest {
         assertThrows(NoSuchElementException.class, () -> list.removeFirst());
     }
 
+    @Test
+    void givenASinglyLinkedList_whenTwoElementsAreInsertedAndTheFirstRemoved_thenSizeIsOne() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.removeFirst();
+        assertEquals(list.getSize(), 1);
+    }
+
 }
