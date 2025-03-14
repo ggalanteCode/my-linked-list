@@ -24,21 +24,6 @@ class SinglyLinkedListTest {
     }
 
     @Test
-    void givenASinglyLinkedList_whenListIsEmpty_thenNoSuchElementExceptionIsThrown() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
-        assertThrows(NoSuchElementException.class, () -> list.removeFirst());
-    }
-
-    @Test
-    void givenASinglyLinkedList_whenTwoElementsAreInsertedAndTheFirstRemoved_thenSizeIsOne() {
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.removeFirst();
-        assertEquals(1, list.getSize());
-    }
-
-    @Test
     void givenASinglyLinkedList_whenTwoElementsAreInsertedAndGetAtIndexZero_thenTheFirstElementIsReturned() {
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.add(1);
@@ -122,6 +107,21 @@ class SinglyLinkedListTest {
         list.add(3);
         list.add(4, 10);
         assertEquals("1 -> 2 -> 3 -> 4", list.traverse());
+    }
+
+    @Test
+    void givenASinglyLinkedList_whenListIsEmpty_thenNoSuchElementExceptionIsThrown() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        assertThrows(NoSuchElementException.class, () -> list.removeFirst());
+    }
+
+    @Test
+    void givenASinglyLinkedList_whenTwoElementsAreInsertedAndTheFirstRemoved_thenSizeIsOne() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.removeFirst();
+        assertEquals(1, list.getSize());
     }
 
 }
