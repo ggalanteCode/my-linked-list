@@ -24,9 +24,15 @@ public class SinglyLinkedList<T> {
         size++;
     }
 
-
+    /**
+     * add an element at the beginning of the list.
+     * @param data
+     */
     public void addFirst(T data) {
-
+        Node<T> newNode = new Node<>(data);
+        newNode.next = head;
+        head = newNode;
+        size++;
     }
 
     public T removeFirst() {
@@ -39,6 +45,21 @@ public class SinglyLinkedList<T> {
 
     public int getSize() {
         return size;
+    }
+
+    /**
+     * traverse the entire list, node by node.
+     */
+    public void traverse() {
+        Node<T> current = head;
+        while (current != null) {
+            System.out.print(current.data);
+            if (current.next != null) {
+                System.out.print(" -> ");
+            }
+            current = current.next;
+        }
+        System.out.println();
     }
 
     private void checkBounds(int index) {
