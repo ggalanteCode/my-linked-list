@@ -51,8 +51,18 @@ public class SinglyLinkedList<T> {
         return removedData;
     }
 
+    /**
+     * retrieves the element at the specified index.
+     * @param index
+     * @return
+     */
     public T get(int index) {
-        return null;
+        checkBounds(index);
+        Node<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
     }
 
     public int getSize() {
@@ -75,7 +85,9 @@ public class SinglyLinkedList<T> {
     }
 
     private void checkBounds(int index) {
-
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("the specified index is out of bounds.");
+        }
     }
 
 }

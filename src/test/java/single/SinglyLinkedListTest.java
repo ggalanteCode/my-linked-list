@@ -38,4 +38,28 @@ class SinglyLinkedListTest {
         assertEquals(list.getSize(), 1);
     }
 
+    @Test
+    void givenASinglyLinkedList_whenTwoElementsAreInsertedAndGetAtIndexZero_thenTheFirstElementIsReturned() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        assertEquals(list.get(0), 1);
+    }
+
+    @Test
+    void givenASinglyLinkedList_whenTwoElementsAreInsertedAndGetAtIndexMinusOne_thenIndexOutOfBoundsExceptionIsThrown() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(-1));
+    }
+
+    @Test
+    void givenASinglyLinkedList_whenTwoElementsAreInsertedAndGetAtIndexTwo_thenIndexOutOfBoundsExceptionIsThrown() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(2));
+    }
+
 }
