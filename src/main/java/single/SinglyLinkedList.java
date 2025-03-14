@@ -37,6 +37,10 @@ public class SinglyLinkedList<T> {
         size++;
     }
 
+    /**
+     * removes the element at the beginning of the list.
+     * @return
+     */
     public T removeFirst() {
         if (head == null) {
             throw new NoSuchElementException("You can't remove anything because the list is empty.");
